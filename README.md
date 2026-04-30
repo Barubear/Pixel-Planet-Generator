@@ -100,12 +100,12 @@ print("Seed:", seed)
 
 ## 🪐 Ring Parameters / 光环参数
 
-| Parameter| Description | Recommended Range |
-|-----|-----|-----|
-ring |	Enable ring / 开启光环 | True / False |
-ring_tilt |	Ellipse tilt / 光环倾斜度 | 0.18–0.65 |
-ring_width |	Ring thickness /光环 宽度 |0.12–0.45 |
-ring_color  |	Ring color / 光环颜色 | 0–255 RGB |
+| Parameter| Description | Type | Recommended Range |
+|-----|-----|-----|-----|
+ring |	Enable ring / 开启光环 | bool | True / False |
+ring_tilt |	Ellipse tilt / 光环倾斜度 | float | 0.18–0.65 |
+ring_width |	Ring thickness /光环 宽度 | float | 0.12–0.45 |
+ring_color  |	Ring color / 光环颜色| tuple[int, int, int] or string | 0–255 RGB  or "#0"-"#FFFFFF"|
 
 
 ## 🔁 Seed System / 种子系统
