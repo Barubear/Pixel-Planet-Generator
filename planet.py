@@ -34,6 +34,8 @@ def make_planet(
     if ring:
         if ring_color is None:
             ring_color = rng.choice(palette["land"] + palette["sea"])
+        else:
+            ring_color = parse_color(ring_color)
 
         draw_ring(
             img,
@@ -101,3 +103,37 @@ def make_planet(
     print(f"seed: {used_seed}")
 
     return used_seed
+
+
+def parse_color(color):
+    """
+    支持：
+    (255, 255, 255)
+    "#FFFFFF"
+    "#FFF"
+    """
+    if color is None:
+        return None
+
+    # 已经是 RGB tuple
+    if isinstance(color, tuple) and len(color) == 3:
+        return color
+
+    # HEX 字符串
+    if isinstance(color, str):
+        color = color.lstrip("#")
+
+        # 短格式 #FFF
+        if len(color) == 3:
+            color = "".join([c * 2 for c in color])
+
+        if len(color) != 6:
+            raise ValueError("Invalid HEX color")
+
+        r = int(color[0:2], 16)
+        g = int(color[2:4], 16)
+        b = int(color[4:6], 16)
+
+        return (r, g, b)
+
+    raise ValueError(f"Unsupported color format: {color}")

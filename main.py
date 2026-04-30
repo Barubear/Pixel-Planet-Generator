@@ -9,6 +9,9 @@ def main():
     output_dir = Path("output")
     output_dir.mkdir(exist_ok=True)
 
+
+    #seed = make_planet( size=96, tone="earth", filename="single_earth.png", ring=True, ring_color="#00FFFF")
+
     size = 96
 
     for tone in PALETTES.keys():
