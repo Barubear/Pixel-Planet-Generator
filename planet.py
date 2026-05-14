@@ -5,7 +5,7 @@ import math
 from palettes import PALETTES
 from blob_map import random_blob_map
 from ring import draw_ring
-
+from frame import draw_corner_frame
 
 def make_planet(
     size=96,
@@ -16,6 +16,11 @@ def make_planet(
     ring_color=None,
     ring_tilt=0.42,
     ring_width=0.28,
+    frame=False,
+    frame_color="#00FFFF",
+    frame_size=12,
+    frame_thickness=2,
+    frame_padding=4,
     scale=4,
 ):
     if seed is None:
@@ -29,11 +34,11 @@ def make_planet(
     img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
 
     cx = cy = size / 2
-    radius = size * (0.36 if ring else 0.43)
+    radius = size * 0.263
 
     if ring:
         if ring_color is None:
-            ring_color = rng.choice(palette["land"] + palette["sea"])
+            ring_color = parse_color(palette["ringcolor"])
         else:
             ring_color = parse_color(ring_color)
 
@@ -94,6 +99,14 @@ def make_planet(
             front=True,
             tilt=ring_tilt,
             width=ring_width,
+        )
+    if frame:
+        draw_corner_frame(
+            img,
+            color=frame_color,
+            corner_size=frame_size,
+            thickness=frame_thickness,
+            padding=frame_padding
         )
 
     img = img.resize((size * scale, size * scale), Image.Resampling.NEAREST)
