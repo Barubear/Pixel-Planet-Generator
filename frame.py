@@ -1,21 +1,4 @@
-def parse_color(color):
-    if isinstance(color, tuple) and len(color) == 3:
-        return color
-
-    if isinstance(color, str):
-        color = color.lstrip("#")
-
-        if len(color) == 3:
-            color = "".join(c * 2 for c in color)
-
-        if len(color) == 6:
-            return (
-                int(color[0:2], 16),
-                int(color[2:4], 16),
-                int(color[4:6], 16),
-            )
-
-    raise ValueError(f"Unsupported color format: {color}")
+from color_util import parse_color
 
 
 def draw_corner_frame(

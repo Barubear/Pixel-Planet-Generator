@@ -1,0 +1,2 @@
+# Direct runtime dependency (version verified in the torch Conda environment).
+Pillow==10.4.0

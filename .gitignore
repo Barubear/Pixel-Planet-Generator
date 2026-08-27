@@ -1,0 +1,25 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments and bundled local dependencies
+.venv/
+venv/
+assets/pydeps/
+.generated_seeds/
+.gui_settings.json
+
+# Editor settings
+.vscode/
+
+# Generated images and animation frames
+output/
+plant_output/
+animation_output/
+galaxy_anim_test/
+galaxy_*.png
+single_*.png
+
+# Local experiments and backups
+*.bak
