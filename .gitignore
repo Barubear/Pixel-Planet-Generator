@@ -7,6 +7,7 @@ __pycache__/
 .venv/
 venv/
 assets/pydeps/
+**/assets/pydeps/
 .generated_seeds/
 .gui_settings.json
 
@@ -20,6 +21,15 @@ animation_output/
 galaxy_anim_test/
 galaxy_*.png
 single_*.png
+
+# Pure-web local tooling
+web-version/.tmp/
+
+# Local desktop distribution bundles and build products (keep on disk)
+desktop-version/package/
+desktop-version/.package_build/
+desktop-version/build/
+desktop-version/dist/
 
 # Local experiments and backups
 *.bak
